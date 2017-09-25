@@ -13,10 +13,6 @@ class AramexServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/views', 'timezones');
-        $this->publishes([
-        __DIR__.'/views' => base_path('resources/views/ngiasim/timezones'),
-        ]);
 
     }
 
@@ -27,8 +23,9 @@ class AramexServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        include __DIR__.'/routes.php';
-        $this->app->make('Ngiasim\Aramex\TimezonesController');
         $this->app->make('Ngiasim\Aramex\AramexShipment');
+        $this->app->register(
+          'Ngiasim\Aramex\AramexShipment'
+        );
     }
 }
