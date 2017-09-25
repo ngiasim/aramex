@@ -24,8 +24,6 @@ class AramexServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->make('Ngiasim\Aramex\AramexShipment');
-        $this->app->register(
-          'Ngiasim\Aramex\AramexServiceProvider'
-        );
+       
     }
 }
