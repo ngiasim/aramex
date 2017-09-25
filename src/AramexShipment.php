@@ -6,6 +6,10 @@ use SoapClient;
 
 class AramexShipment extends Controller
 {
+    public function testing()
+    {
+    	echo 'Testing';
+    }
     public function shipment()
     {
     
