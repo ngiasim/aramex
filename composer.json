@@ -1,0 +1,18 @@
+{
+    "name": "ngiasim/aramex",
+    "description": "Package for aramex APIs",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Asim Zubair",
+            "email": "asim@nextgeni.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Ngiasim\\Aramex\\": "vendor/ngiasim/aramex/src"
+        }
+    }
+}
