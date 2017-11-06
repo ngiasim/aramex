@@ -6,14 +6,10 @@ use SoapClient;
 
 class AramexShipment extends Controller
 {
-    public function testing()
-    {
-    	echo 'Testing';
-    }
     public function shipment()
     {
     
-    $soapClient = new SoapClient('https://ws.dev.aramex.net/shippingapi/shipping/service_1_0.svc?wsdl');
+    $soapClient = new SoapClient('https://ws.aramex.net/shippingapi/shipping/service_1_0.svc?wsdl');
 	//$soapClient = new SoapClient('shipping.wsdl');
 	//$soapClient = new SoapClient('https://ws.aramex.net/shippingapi/shipping/service_1_0.svc?wsdl');
 	//echo '<pre>';
@@ -30,10 +26,10 @@ class AramexShipment extends Controller
 											'Line1'					=> 'Flat No:123',
 											'Line2'					=> 'DHA',
 											'Line3'					=> 'Phase 2',
-											'City'					=> 'Ajman',
+											'City'					=> 'Riyadh',
 											'StateOrProvinceCode'	=> '',
-											'PostCode'				=> '',
-											'CountryCode'			=> 'Ae'
+											'PostCode'				=> '21589',
+											'CountryCode'			=> 'SA'
 										),
 										'Contact'		=> array(
 											'Department'			=> '',
@@ -59,10 +55,10 @@ class AramexShipment extends Controller
 											'Line1'					=> 'NextGenI , Dot Zero',
 											'Line2' 				=> 'Dilkusha Forum',
 											'Line3' 				=> 'Tariq Road',
-											'City'					=> 'Dubai',
+											'City'					=> 'Jeddah',
 											'StateOrProvinceCode'	=> '',
-											'PostCode'				=> '',
-											'CountryCode'			=> 'Ae'
+											'PostCode'				=> '21589',
+											'CountryCode'			=> 'SA'
 										),
 										
 										'Contact'		=> array(
@@ -113,7 +109,7 @@ class AramexShipment extends Controller
 						'Reference1' 				=> 'Shpt 0001',
 						'Reference2' 				=> '',
 						'Reference3' 				=> '',
-						'ForeignHAWB'				=> 'www 123432',
+						'ForeignHAWB'				=> 'eee 123455',
 						'TransportType'				=> 0,
 						'ShippingDateTime' 			=> time(),
 						'DueDate'					=> time(),
@@ -137,7 +133,7 @@ class AramexShipment extends Controller
 											'Unit'					=> 'Kg'
 										),
 										
-										'ProductGroup' 			=> 'EXP',
+										'ProductGroup' 			=> 'DOM',
 										'ProductType'			=> 'PDX',
 										'PaymentType'			=> 'P',
 										'PaymentOptions' 		=> 'CASH',
@@ -181,14 +177,14 @@ class AramexShipment extends Controller
 			),
 			
 				'ClientInfo'  			=> array(
-											'AccountCountryCode'	=> 'JO',
-											'AccountEntity'		 	=> 'AMM',
-											'AccountNumber'		 	=> '20016',
-											'AccountPin'		 	=> '331421',
-											'UserName'			 	=> 'testingapi@aramex.com',
-											'Password'			 	=> 'R123456789$r',
-											'Version'			 	=> '1.0'
-										),
+										'AccountCountryCode'	=> 'JO',
+										'AccountEntity'		 	=> 'AMM',
+										'AccountNumber'		 	=> '20016',
+										'AccountPin'		 	=> '331421',
+										'UserName'			 	=> 'testingapi@aramex.com',
+										'Password'			 	=> 'R123456789$r',
+										'Version'			 	=> '1.0'
+								),
 
 				'Transaction' 			=> array(
 											'Reference1'			=> '001',
@@ -214,14 +210,9 @@ class AramexShipment extends Controller
 			'Reference'		=> ''
 		);
 		
-		//print_r($params);
-		
 		try {
 			$auth_call = $soapClient->CreateShipments($params);
 			return $auth_call;
-			//echo '<pre>';
-			//print_r($auth_call);
-			//die();
 		} catch (SoapFault $fault) {
 			return array('Error : '=>$fault->faultstring);
 			//die('Error : ' . $fault->faultstring);
