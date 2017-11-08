@@ -25,6 +25,7 @@ class AramexServiceProvider extends ServiceProvider
     {
         $this->app->make('Ngiasim\Aramex\AramexShipment');
         $this->app->make('Ngiasim\Aramex\AramexTracking');
+        $this->app->make('Ngiasim\Aramex\AramexLocation');
        
     }
 }
